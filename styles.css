@@ -1,0 +1,101 @@
+        body, h1, h2, div, label, input, select, button, table {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Page layout */
+        body {
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #A4383B;
+            color: #fff;
+            padding: 1px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+		
+		h4 {
+			font-size: 24px;
+			margin-top: auto;
+			color: #A4383B;
+        }
+
+        /* Form styles */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        select {
+			appearance: none;
+			background: transparent;
+			background-image: url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-arrow-down-b-128.png");
+			background-repeat: no-repeat;
+			background-position: right center;
+			background-size: 20px; /* Adjust the size as needed */
+			padding-right: 30px;
+		}
+
+
+        /* Button style */
+        button {
+            background-color: #A4383B;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #73272b;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
