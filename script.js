@@ -1,7 +1,6 @@
-	require('dotenv').config();
 function calculateRates() {
     // Send a POST request to the proxy server
-    const apiKey = process.env.SHIPENGINE_API_KEY;
+    const apiKey = 'uUzZmizI1M2oCpHoj1mlAEWpPE2NMOqe/0MT0U73zyw'; // Replace with your ShipEngine API key
     const shipengineUrl = 'https://api.shipengine.com/v1/rates'; // ShipEngine API endpoint
     const bottleCount = parseInt(document.getElementById('bottleCount').value);
 
