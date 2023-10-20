@@ -1,7 +1,7 @@
 function calculateRates() {
     // Send a POST request to the proxy server
     const apiKey = 'uUzZmizI1M2oCpHoj1mlAEWpPE2NMOqe/0MT0U73zyw'; // Replace with your ShipEngine API key
-    const shipengineUrl = 'https://api.shipengine.com/v1/rates'; // ShipEngine API endpoint
+    const shipengineUrl = 'https://ccfk2jgnxc.execute-api.us-east-2.amazonaws.com/Prod'; // ShipEngine API endpoint
     const bottleCount = parseInt(document.getElementById('bottleCount').value);
 
     // Calculate package weight based on the number of bottles (assuming each bottle weighs 16 ounces)
