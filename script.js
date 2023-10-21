@@ -113,12 +113,17 @@ function calculateRates() {
         });
 
         // Display Confirmation and Contains Alcohol options
-        confirmationElement.textContent = requestData.shipment.confirmation; // Use requestData to access confirmation
-        containsAlcoholElement.textContent = requestData.shipment.advanced_options.contains_alcohol ? 'Yes' : 'No'; // Use requestData to access contains_alcohol
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        confirmationElement.textContent = requestData.shipment.confirmation;
+        containsAlcoholElement.textContent = requestData.shipment.advanced_options.contains_alcohol ? 'Yes' : 'No';
+    } else {
+        // Handle the case where 'rate_response' is missing or null in the response
+        console.error('Invalid response data:', data);
+        // Display an error message or take appropriate action
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+});
 }
 
 // Attach the calculateRates function to the button click event
