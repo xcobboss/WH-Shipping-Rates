@@ -92,7 +92,8 @@ function calculateRates() {
         body: JSON.stringify(requestData),
     })
     .then(response => response.json())
-    .then(data => {
+.then(data => {
+    if (data && data.rate_response) {
         // Display the response in a table format
         console.log('Response Data:', data);
         const resultTable = document.getElementById('resultTable').getElementsByTagName('tbody')[0];
