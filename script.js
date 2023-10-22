@@ -91,7 +91,11 @@ function calculateRates() {
         },
         body: JSON.stringify(requestData),
     })
-    .then(response => response.json())
+    .then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
 .then(data => {
     if (data && data.rate_response) {
         // Display the response in a table format
@@ -124,6 +128,7 @@ function calculateRates() {
 })
 .catch(error => {
     console.error('Error:', error);
+    console.error('Fetch Error:', error);
 });
 }
 
