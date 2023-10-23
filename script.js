@@ -1,7 +1,7 @@
 function calculateRates() {
     // Send a POST request to the proxy server
     const apiKey = 'uUzZmizI1M2oCpHoj1mlAEWpPE2NMOqe/0MT0U73zyw'; // Replace with your ShipEngine API key
-    const shipengineUrl = 'https://ccfk2jgnxc.execute-api.us-east-2.amazonaws.com/Prod/proxy'; // Replace with your AWS Lambda API endpoint
+    const shipengineUrl = 'https://api.shipengine.com/v1/rates'; // ShipEngine API endpoint
     const bottleCount = parseInt(document.getElementById('bottleCount').value);
 
     // Calculate package weight based on the number of bottles (assuming each bottle weighs 16 ounces)
@@ -91,13 +91,8 @@ function calculateRates() {
         },
         body: JSON.stringify(requestData),
     })
-    .then(response => {
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-    return response.json();
-.then(data => {
-    if (data && data.rate_response) {
+    .then(response => response.json())
+    .then(data => {
         // Display the response in a table format
         console.log('Response Data:', data);
         const resultTable = document.getElementById('resultTable').getElementsByTagName('tbody')[0];
@@ -118,18 +113,12 @@ function calculateRates() {
         });
 
         // Display Confirmation and Contains Alcohol options
-        confirmationElement.textContent = requestData.shipment.confirmation;
-        containsAlcoholElement.textContent = requestData.shipment.advanced_options.contains_alcohol ? 'Yes' : 'No';
-    } else {
-        // Handle the case where 'rate_response' is missing or null in the response
-        console.error('Invalid response data:', data);
-        // Display an error message or take appropriate action
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
-    console.error('Fetch Error:', error);
-});
+        confirmationElement.textContent = requestData.shipment.confirmation; // Use requestData to access confirmation
+        containsAlcoholElement.textContent = requestData.shipment.advanced_options.contains_alcohol ? 'Yes' : 'No'; // Use requestData to access contains_alcohol
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 // Attach the calculateRates function to the button click event
